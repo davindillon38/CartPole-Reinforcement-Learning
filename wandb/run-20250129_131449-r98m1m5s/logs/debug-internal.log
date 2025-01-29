@@ -1,0 +1,17 @@
+{"time":"2025-01-29T13:14:49.924458676-05:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/wandb/run-20250129_131449-r98m1m5s/logs/debug-core.log"}
+{"time":"2025-01-29T13:14:50.956020509-05:00","level":"INFO","msg":"created new stream","id":"r98m1m5s"}
+{"time":"2025-01-29T13:14:50.956899969-05:00","level":"INFO","msg":"stream: started","id":"r98m1m5s"}
+{"time":"2025-01-29T13:14:50.957151419-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"r98m1m5s"}
+{"time":"2025-01-29T13:14:50.95723894-05:00","level":"INFO","msg":"handler: started","stream_id":"r98m1m5s"}
+{"time":"2025-01-29T13:14:50.957270833-05:00","level":"INFO","msg":"sender: started","stream_id":"r98m1m5s"}
+{"time":"2025-01-29T13:14:51.126660059-05:00","level":"ERROR","msg":"HTTP error","status":403,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2025-01-29T13:14:51.128424441-05:00","level":"ERROR","msg":"sender: upsertRun:","error":"failed to upsert bucket: returned error 403 Forbidden: {\"errors\":[{\"message\":\"permission denied\",\"path\":[\"upsertBucket\"],\"extensions\":{\"code\":\"PERMISSION_ERROR\"}}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2025-01-29T13:14:51.205789245-05:00","level":"INFO","msg":"stream: closing","id":"r98m1m5s"}
+{"time":"2025-01-29T13:14:51.206118163-05:00","level":"ERROR","msg":"sender: upsertConfig: RunRecord is nil"}
+{"time":"2025-01-29T13:14:51.308383028-05:00","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2025-01-29T13:14:51.308761636-05:00","level":"ERROR","msg":"runfiles: CreateRunFiles returned error: returned error 404 Not Found: {\"errors\":[{\"message\":\"project davindillon/cartpole-qlearning not found during createRunFiles\",\"path\":[\"createRunFiles\"]}],\"data\":{\"createRunFiles\":null}}"}
+{"time":"2025-01-29T13:14:51.311599164-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-29T13:14:51.311984069-05:00","level":"INFO","msg":"handler: closed","stream_id":"r98m1m5s"}
+{"time":"2025-01-29T13:14:51.311995599-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"r98m1m5s"}
+{"time":"2025-01-29T13:14:51.312110565-05:00","level":"INFO","msg":"sender: closed","stream_id":"r98m1m5s"}
+{"time":"2025-01-29T13:14:51.312869303-05:00","level":"INFO","msg":"stream: closed","id":"r98m1m5s"}

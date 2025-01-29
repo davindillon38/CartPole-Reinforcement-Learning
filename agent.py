@@ -41,8 +41,8 @@ class AgentLearning(object):
 
     def _set_seed(self):
         ''' Set random seeds for reproducibility. '''
-        np.random.seed(21)
-        random.seed(21)
+        np.random.seed(38)
+        random.seed(38)
 
     def build_state(self, features):
         ''' Build state by concatenating features (bins) into 4 digit int. '''
@@ -59,8 +59,10 @@ class AgentLearning(object):
         '''
         cart_position_bins = pd.cut([-2.4, 2.4], bins=10, retbins=True)[1][1:-1]
         pole_angle_bins = pd.cut([-2, 2], bins=10, retbins=True)[1][1:-1]
+
         cart_velocity_bins = pd.cut([-1, 1], bins=10, retbins=True)[1][1:-1]
         angle_rate_bins = pd.cut([-3.5, 3.5], bins=10, retbins=True)[1][1:-1]
+
         state = self.build_state([np.digitize(x=[obs[0]], bins=cart_position_bins)[0],
                                  np.digitize(x=[obs[1]], bins=pole_angle_bins)[0],
                                  np.digitize(x=[obs[2]], bins=cart_velocity_bins)[0],

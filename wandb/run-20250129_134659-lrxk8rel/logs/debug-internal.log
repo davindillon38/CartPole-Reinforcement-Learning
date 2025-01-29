@@ -1,0 +1,16 @@
+{"time":"2025-01-29T13:46:59.879096713-05:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/wandb/run-20250129_134659-lrxk8rel/logs/debug-core.log"}
+{"time":"2025-01-29T13:47:00.728934028-05:00","level":"INFO","msg":"created new stream","id":"lrxk8rel"}
+{"time":"2025-01-29T13:47:00.729173396-05:00","level":"INFO","msg":"stream: started","id":"lrxk8rel"}
+{"time":"2025-01-29T13:47:00.729258148-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"lrxk8rel"}
+{"time":"2025-01-29T13:47:00.729274201-05:00","level":"INFO","msg":"handler: started","stream_id":"lrxk8rel"}
+{"time":"2025-01-29T13:47:00.729280442-05:00","level":"INFO","msg":"sender: started","stream_id":"lrxk8rel"}
+{"time":"2025-01-29T13:47:01.069293581-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-29T13:48:57.497542819-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-29T13:48:57.49956294-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-29T13:48:58.221084483-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-29T13:48:58.402352968-05:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-01-29T13:48:59.416172551-05:00","level":"INFO","msg":"stream: closing","id":"lrxk8rel"}
+{"time":"2025-01-29T13:48:59.416844912-05:00","level":"INFO","msg":"handler: closed","stream_id":"lrxk8rel"}
+{"time":"2025-01-29T13:48:59.416870958-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"lrxk8rel"}
+{"time":"2025-01-29T13:48:59.416951425-05:00","level":"INFO","msg":"sender: closed","stream_id":"lrxk8rel"}
+{"time":"2025-01-29T13:48:59.419115669-05:00","level":"INFO","msg":"stream: closed","id":"lrxk8rel"}

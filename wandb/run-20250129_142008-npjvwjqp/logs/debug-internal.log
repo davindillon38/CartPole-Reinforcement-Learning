@@ -1,0 +1,16 @@
+{"time":"2025-01-29T14:20:09.233659628-05:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/wandb/run-20250129_142008-npjvwjqp/logs/debug-core.log"}
+{"time":"2025-01-29T14:20:09.820499209-05:00","level":"INFO","msg":"created new stream","id":"npjvwjqp"}
+{"time":"2025-01-29T14:20:09.820725586-05:00","level":"INFO","msg":"stream: started","id":"npjvwjqp"}
+{"time":"2025-01-29T14:20:09.821159993-05:00","level":"INFO","msg":"sender: started","stream_id":"npjvwjqp"}
+{"time":"2025-01-29T14:20:09.820776474-05:00","level":"INFO","msg":"handler: started","stream_id":"npjvwjqp"}
+{"time":"2025-01-29T14:20:09.820762485-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"npjvwjqp"}
+{"time":"2025-01-29T14:20:10.164852433-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-29T14:23:36.736651729-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-29T14:23:36.738312142-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-29T14:23:37.179225369-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-29T14:23:37.43225868-05:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-01-29T14:23:38.450633398-05:00","level":"INFO","msg":"stream: closing","id":"npjvwjqp"}
+{"time":"2025-01-29T14:23:38.451668183-05:00","level":"INFO","msg":"handler: closed","stream_id":"npjvwjqp"}
+{"time":"2025-01-29T14:23:38.451794325-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"npjvwjqp"}
+{"time":"2025-01-29T14:23:38.452009321-05:00","level":"INFO","msg":"sender: closed","stream_id":"npjvwjqp"}
+{"time":"2025-01-29T14:23:38.459652496-05:00","level":"INFO","msg":"stream: closed","id":"npjvwjqp"}

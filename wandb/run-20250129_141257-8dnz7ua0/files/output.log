@@ -1,0 +1,45 @@
+************** Environment Info **************
+Observation space: Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32)
+Observation space high values: [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38]
+Observation space low values: [-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]
+Action space: Discrete(2)
+
+Episode 0
+/home/davindillon/.local/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:233: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+  if not isinstance(terminated, (bool, np.bool8)):
+Episode 100
+Episode 200
+Episode 300
+Episode 400
+Episode 500
+Episode 600
+Episode 700
+******* Training Stats *********
+Average: 73.36773255813954
+Standard Deviation: 56.90396289974817
+Minimum: 9.0
+Maximum: 200.0
+Number of training episodes: 688
+
+******* Testing Stats *********
+Average: 188.99
+Standard Deviation: 30.553066949162403
+Minimum: 14.0
+Maximum: 200.0
+Number of testing episodes: 100
+Traceback (most recent call last):
+  File "/mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/cartpole.py", line 196, in <module>
+    main()
+  File "/mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/cartpole.py", line 178, in main
+    stats.save_info(agent, training_totals, testing_totals)
+  File "/mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/stats.py", line 128, in save_info
+    wandb.log({"performance_plot": wandb.Image("plots.png")})
+NameError: name 'wandb' is not defined
+Traceback (most recent call last):
+  File "/mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/cartpole.py", line 196, in <module>
+    main()
+  File "/mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/cartpole.py", line 178, in main
+    stats.save_info(agent, training_totals, testing_totals)
+  File "/mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/stats.py", line 128, in save_info
+    wandb.log({"performance_plot": wandb.Image("plots.png")})
+NameError: name 'wandb' is not defined

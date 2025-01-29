@@ -1,0 +1,24 @@
+2025-01-29 13:26:36,176 INFO    MainThread:14748 [wandb_setup.py:_flush():68] Current SDK version is 0.19.5
+2025-01-29 13:26:36,178 INFO    MainThread:14748 [wandb_setup.py:_flush():68] Configure stats pid to 14748
+2025-01-29 13:26:36,179 INFO    MainThread:14748 [wandb_setup.py:_flush():68] Loading settings from /home/davindillon/.config/wandb/settings
+2025-01-29 13:26:36,180 INFO    MainThread:14748 [wandb_setup.py:_flush():68] Loading settings from /mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/wandb/settings
+2025-01-29 13:26:36,180 INFO    MainThread:14748 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-01-29 13:26:36,182 INFO    MainThread:14748 [wandb_init.py:setup_run_log_directory():637] Logging user logs to /mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/wandb/run-20250129_132636-cztgqamc/logs/debug.log
+2025-01-29 13:26:36,193 INFO    MainThread:14748 [wandb_init.py:setup_run_log_directory():638] Logging internal logs to /mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/wandb/run-20250129_132636-cztgqamc/logs/debug-internal.log
+2025-01-29 13:26:36,194 INFO    MainThread:14748 [wandb_init.py:init():756] calling init triggers
+2025-01-29 13:26:36,195 INFO    MainThread:14748 [wandb_init.py:init():761] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-01-29 13:26:36,195 INFO    MainThread:14748 [wandb_init.py:init():789] starting backend
+2025-01-29 13:26:36,416 INFO    MainThread:14748 [wandb_init.py:init():793] sending inform_init request
+2025-01-29 13:26:36,517 INFO    MainThread:14748 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-01-29 13:26:36,518 INFO    MainThread:14748 [wandb_init.py:init():808] backend started and connected
+2025-01-29 13:26:36,520 INFO    MainThread:14748 [wandb_init.py:init():901] updated telemetry
+2025-01-29 13:26:36,732 INFO    MainThread:14748 [wandb_init.py:init():926] communicating run to backend with 90.0 second timeout
+2025-01-29 13:26:37,791 ERROR   MainThread:14748 [wandb_init.py:init():1471] error in wandb.init()
+Traceback (most recent call last):
+  File "/home/davindillon/.local/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1461, in init
+    return wi.init(run_settings, run_config)
+  File "/home/davindillon/.local/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 957, in init
+    raise error
+wandb.errors.errors.CommError: failed to upsert bucket: returned error 403 Forbidden: {"errors":[{"message":"permission denied","path":["upsertBucket"],"extensions":{"code":"PERMISSION_ERROR"}}],"data":{"upsertBucket":null}}
+2025-01-29 13:26:37,871 WARNING MsgRouterThr:14748 [router.py:message_loop():75] message_loop has been closed

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import gym
+import wandb
 import numpy as np
 import argparse
 from agent import AgentBasic, AgentRandom, AgentLearning
@@ -22,11 +23,14 @@ def basic_guessing_policy(env, agent):
     totals = []
     for episode in range(500):
         episode_rewards = 0
-        obs = env.reset()
+        obs, _ = env.reset()
+
         # env.render()
         for step in range(1000):  # 1000 steps max unless failure
             action = agent.act(obs)
-            obs, reward, done, info = env.step(action)
+            obs, reward, terminated, truncated, info = env.step(action)
+            done = terminated or truncated  # Combine for compatibility
+
             episode_rewards += reward
             # env.render()
             if done:
@@ -50,7 +54,9 @@ def random_guessing_policy(env, agent):
         # env.render()
         for step in range(1000):  # 1000 steps max
             action = agent.act()
-            obs, reward, done, info = env.step(action)
+            obs, reward, terminated, truncated, info = env.step(action)
+            done = terminated or truncated  # Combine for compatibility
+
             episode_rewards += reward
             # env.render()
             if done:
@@ -83,21 +89,26 @@ def q_learning(env, agent):
     training_totals = []
     testing_totals = []
     history = {'epsilon': [], 'alpha': []}
-    for episode in range(800):  # 688 testing trials
+    for episode in range(1600):  # 688 testing trials
+        if episode%100 == 0:
+            print(f'Episode {episode}')
         episode_rewards = 0
-        obs = env.reset()
+        obs, _ = env.reset()
+
         # If epsilon is less than tolerance, testing begins
         if agent.epsilon < tolerance:
             agent.alpha = 0
             agent.epsilon = 0
             training = False
         # Decay epsilon as training goes on
-        agent.epsilon = agent.epsilon * 0.99  # 99% of epsilon value
+        agent.epsilon = agent.epsilon * 0.995  # 99.5% of epsilon value
         for step in range(200):        # 200 steps max
             state = agent.create_state(obs)           # Get state
             agent.create_Q(state, valid_actions)      # Create state in Q_table
             action = agent.choose_action(state)         # Choose action
-            obs, reward, done, info = env.step(action)  # Do action
+            obs, reward, terminated, truncated, info = env.step(action)
+            done = terminated or truncated  # Combine for compatibility
+
             episode_rewards += reward                   # Receive reward
             # Skip learning for first step
             if step != 0:
@@ -114,9 +125,22 @@ def q_learning(env, agent):
             agent.training_trials += 1
             history['epsilon'].append(agent.epsilon)
             history['alpha'].append(agent.alpha)
+                # Log training metrics to wandb
+            wandb.log({
+            "training_reward": episode_rewards,
+            "epsilon": agent.epsilon,
+            "alpha": agent.alpha,
+            "training_trials": agent.training_trials
+            })
         else:
             testing_totals.append(episode_rewards)
             agent.testing_trials += 1
+            wandb.log({
+            "testing_reward": episode_rewards,
+            "epsilon": agent.epsilon,
+            "alpha": agent.alpha,
+            "testing_trials": agent.testing_trials
+            })
             # After 100 testing trials, break. Because of OpenAI's rules for solving env
             if agent.testing_trials == 100:
                 break
@@ -125,12 +149,15 @@ def q_learning(env, agent):
 
 def main():
     ''' Execute main program. '''
+
+    wandb.init(project="cartpole-qlearning", entity="davindillon-ohio-university")
     # Create a cartpole environment
     # Observation: [horizontal pos, velocity, angle of pole, angular velocity]
     # Rewards: +1 at every step. i.e. goal is to stay alive
-    env = gym.make('CartPole-v0')
+    env = gym.make('CartPole-v1')
     # Set environment seed
-    env.seed(21)
+    env.reset(seed=38)
+
     environment_info(env)
     parser = argparse.ArgumentParser()
     parser.add_argument('-a', '--agent', help='define type of agent you want')
@@ -156,6 +183,8 @@ def main():
             print("Environment not solved.",
                   "Must get average reward of 195.0 or",
                   "greater for 100 consecutive trials.")
+
+        wandb.finish()
     # No argument passed, agent defaults to Basic
     else:
         agent = AgentBasic()

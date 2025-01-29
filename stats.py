@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+import wandb
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -124,4 +124,6 @@ def save_info(agent, training_totals, testing_totals):
                            '\n\tAction: ' + str(agent.Q_table[state]))
     # Save figure and display plot
     plt.savefig('plots.png')
+    # Log the plot to WandB
+    wandb.log({"performance_plot": wandb.Image("plots.png")})
     plt.show()

@@ -1,0 +1,1 @@
+{"min_training_reward":8,"_runtime":117.617852014,"avg_training_reward":72.96220930232558,"_timestamp":1.7381765374846773e+09,"avg_testing_reward":114.88,"_wandb":{"runtime":117},"max_testing_reward":200,"_step":1,"max_training_reward":200,"min_testing_reward":33}

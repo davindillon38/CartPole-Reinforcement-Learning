@@ -1,0 +1,30 @@
+************** Environment Info **************
+Observation space: Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32)
+Observation space high values: [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38]
+Observation space low values: [-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]
+Action space: Discrete(2)
+
+Episode 0
+/home/davindillon/.local/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:233: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+  if not isinstance(terminated, (bool, np.bool8)):
+Episode 100
+Episode 200
+Episode 300
+Episode 400
+Episode 500
+Episode 600
+Episode 700
+******* Training Stats *********
+Average: 65.03924418604652
+Standard Deviation: 52.498116527772964
+Minimum: 8.0
+Maximum: 200.0
+Number of training episodes: 688
+
+******* Testing Stats *********
+Average: 105.34
+Standard Deviation: 59.22587610158249
+Minimum: 12.0
+Maximum: 200.0
+Number of testing episodes: 100
+Environment not solved. Must get average reward of 195.0 or greater for 100 consecutive trials.
