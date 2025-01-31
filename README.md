@@ -1,3 +1,8 @@
+
+# wandb
+The wandb logs for my runs are [here](https://wandb.ai/davindillon-ohio-university/cartpole-qlearning?nw=nwuserdavindillon)
+
+
 # CartPole-Reinforcement-Learning
 Reinforcement learning approach to OpenAI Gym's CartPole environment
 
