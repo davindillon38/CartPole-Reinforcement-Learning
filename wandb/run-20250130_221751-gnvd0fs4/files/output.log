@@ -1,0 +1,163 @@
+************** Environment Info **************
+Observation space: Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32)
+Observation space high values: [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38]
+Observation space low values: [-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]
+Action space: Discrete(2)
+
+Episode 0
+/home/davindillon/.local/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:233: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+  if not isinstance(terminated, (bool, np.bool8)):
+Episode 100
+Episode 200
+Episode 300
+Episode 400
+Episode 500
+Episode 600
+Episode 700
+Episode 800
+Episode 900
+Episode 1000
+Episode 1100
+Episode 1200
+Episode 1300
+Episode 1400
+Episode 1500
+Episode 1600
+Episode 1700
+Episode 1800
+Episode 1900
+Episode 2000
+Episode 2100
+Episode 2200
+Episode 2300
+Episode 2400
+Episode 2500
+Episode 2600
+Episode 2700
+Episode 2800
+Episode 2900
+Episode 3000
+Episode 3100
+Episode 3200
+Episode 3300
+Episode 3400
+Episode 3500
+Episode 3600
+Episode 3700
+Episode 3800
+Episode 3900
+Episode 4000
+Episode 4100
+Episode 4200
+Episode 4300
+Episode 4400
+Episode 4500
+Episode 4600
+Episode 4700
+Episode 4800
+Episode 4900
+Episode 5000
+Episode 5100
+Episode 5200
+Episode 5300
+Episode 5400
+Episode 5500
+Episode 5600
+Episode 5700
+Episode 5800
+Episode 5900
+Episode 6000
+Episode 6100
+Episode 6200
+Episode 6300
+Episode 6400
+Episode 6500
+Episode 6600
+Episode 6700
+Episode 6800
+Episode 6900
+Episode 7000
+Episode 7100
+Episode 7200
+Episode 7300
+Episode 7400
+Episode 7500
+Episode 7600
+Episode 7700
+Episode 7800
+Episode 7900
+Episode 8000
+Episode 8100
+Episode 8200
+Episode 8300
+Episode 8400
+Episode 8500
+Episode 8600
+Episode 8700
+Episode 8800
+Episode 8900
+Episode 9000
+Episode 9100
+Episode 9200
+Episode 9300
+Episode 9400
+Episode 9500
+Episode 9600
+Episode 9700
+Episode 9800
+Episode 9900
+Episode 10000
+Episode 10100
+Episode 10200
+Episode 10300
+Episode 10400
+Episode 10500
+Episode 10600
+Episode 10700
+Episode 10800
+Episode 10900
+Episode 11000
+Episode 11100
+Episode 11200
+Episode 11300
+Episode 11400
+Episode 11500
+Episode 11600
+Episode 11700
+Episode 11800
+Episode 11900
+Episode 12000
+Episode 12100
+Episode 12200
+Episode 12300
+Episode 12400
+Episode 12500
+Episode 12600
+Episode 12700
+Episode 12800
+Episode 12900
+Episode 13000
+Episode 13100
+Episode 13200
+Episode 13300
+Episode 13400
+Episode 13500
+Episode 13600
+Episode 13700
+Episode 13800
+Training ended on episode 13813
+Episode 13900
+******* Training Stats *********
+Average: 103.91384927242453
+Standard Deviation: 70.44319651654845
+Minimum: 8.0
+Maximum: 200.0
+Number of training episodes: 13813
+
+******* Testing Stats *********
+Average: 199.46
+Standard Deviation: 4.3827388697023695
+Minimum: 157.0
+Maximum: 200.0
+Number of testing episodes: 100
+Environment SOLVED!!!

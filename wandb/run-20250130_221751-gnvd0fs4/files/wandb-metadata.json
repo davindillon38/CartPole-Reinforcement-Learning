@@ -1,0 +1,45 @@
+{
+  "os": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "python": "CPython 3.10.12",
+  "startedAt": "2025-01-31T03:17:52.346881Z",
+  "args": [
+    "-a",
+    "q-learning"
+  ],
+  "program": "/mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/cartpole.py",
+  "codePath": "cartpole.py",
+  "git": {
+    "remote": "https://davindillon38:@github.com/davindillon38/CartPole-Reinforcement-Learning.git",
+    "commit": "c15358830425dcdf6d75d24000db4ba4534be230"
+  },
+  "email": "davindillon@gmail.com",
+  "root": "/mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole",
+  "host": "Kvothe",
+  "executable": "/usr/bin/python3",
+  "codePathLocal": "cartpole.py",
+  "cpu_count": 12,
+  "cpu_count_logical": 24,
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "1081101176832",
+      "used": "23469424640"
+    }
+  },
+  "memory": {
+    "total": "16634097664"
+  },
+  "cpu": {
+    "count": 12,
+    "countLogical": 24
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "memoryTotal": "8585740288",
+      "architecture": "Ada"
+    }
+  ],
+  "cudaVersion": "12.6"
+}

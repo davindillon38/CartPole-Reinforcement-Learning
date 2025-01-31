@@ -89,7 +89,8 @@ def q_learning(env, agent):
     training_totals = []
     testing_totals = []
     history = {'epsilon': [], 'alpha': []}
-    for episode in range(8000):  # 688 testing trials
+    printed = False
+    for episode in range(18000):  # 688 testing trials
         if episode%100 == 0:
             print(f'Episode {episode}')
         episode_rewards = 0
@@ -97,12 +98,14 @@ def q_learning(env, agent):
 
         # If epsilon is less than tolerance, testing begins
         if agent.epsilon < tolerance:
-            print(f'Training ended on episode {episode}')
+            if not printed:
+                print(f'Training ended on episode {episode}')
+                printed = True
             agent.alpha = 0
             agent.epsilon = 0
             training = False
         # Decay epsilon as training goes on
-        agent.epsilon = agent.epsilon * 0.999  # 99.9% of epsilon value
+        agent.epsilon = agent.epsilon * 0.9995  # 99.95% of epsilon value
         for step in range(200):        # 200 steps max
             state = agent.create_state(obs)           # Get state
             agent.create_Q(state, valid_actions)      # Create state in Q_table
@@ -151,7 +154,8 @@ def q_learning(env, agent):
 def main():
     ''' Execute main program. '''
 
-    wandb.init(project="cartpole-qlearning", entity="davindillon-ohio-university", name="Epsilon * 0.999")
+    wandb.init(project="cartpole-qlearning", entity="davindillon-ohio-university", 
+               name="Epsilon * 0.9995")
     # Create a cartpole environment
     # Observation: [horizontal pos, velocity, angle of pole, angular velocity]
     # Rewards: +1 at every step. i.e. goal is to stay alive
