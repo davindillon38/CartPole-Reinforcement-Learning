@@ -1,0 +1,194 @@
+************** Environment Info **************
+Observation space: Box([-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38], [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38], (4,), float32)
+Observation space high values: [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38]
+Observation space low values: [-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]
+Action space: Discrete(2)
+
+Episode 0
+/home/davindillon/.local/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:233: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+  if not isinstance(terminated, (bool, np.bool8)):
+Episode 100
+Episode 200
+Episode 300
+Episode 400
+Episode 500
+Episode 600
+Episode 700
+Episode 800
+Episode 900
+Episode 1000
+Episode 1100
+Episode 1200
+Episode 1300
+Episode 1400
+Episode 1500
+Episode 1600
+Episode 1700
+Episode 1800
+Episode 1900
+Episode 2000
+Episode 2100
+Episode 2200
+Episode 2300
+Episode 2400
+Episode 2500
+Episode 2600
+Episode 2700
+Episode 2800
+Episode 2900
+Episode 3000
+Episode 3100
+Episode 3200
+Episode 3300
+Episode 3400
+Episode 3500
+Episode 3600
+Episode 3700
+Episode 3800
+Episode 3900
+Episode 4000
+Episode 4100
+Episode 4200
+Episode 4300
+Episode 4400
+Episode 4500
+Episode 4600
+Episode 4700
+Episode 4800
+Episode 4900
+Episode 5000
+Episode 5100
+Episode 5200
+Episode 5300
+Episode 5400
+Episode 5500
+Episode 5600
+Episode 5700
+Episode 5800
+Episode 5900
+Episode 6000
+Episode 6100
+Episode 6200
+Episode 6300
+Episode 6400
+Episode 6500
+Episode 6600
+Episode 6700
+Episode 6800
+Episode 6900
+Training ended on episode 6905
+Training ended on episode 6906
+Training ended on episode 6907
+Training ended on episode 6908
+Training ended on episode 6909
+Training ended on episode 6910
+Training ended on episode 6911
+Training ended on episode 6912
+Training ended on episode 6913
+Training ended on episode 6914
+Training ended on episode 6915
+Training ended on episode 6916
+Training ended on episode 6917
+Training ended on episode 6918
+Training ended on episode 6919
+Training ended on episode 6920
+Training ended on episode 6921
+Training ended on episode 6922
+Training ended on episode 6923
+Training ended on episode 6924
+Training ended on episode 6925
+Training ended on episode 6926
+Training ended on episode 6927
+Training ended on episode 6928
+Training ended on episode 6929
+Training ended on episode 6930
+Training ended on episode 6931
+Training ended on episode 6932
+Training ended on episode 6933
+Training ended on episode 6934
+Training ended on episode 6935
+Training ended on episode 6936
+Training ended on episode 6937
+Training ended on episode 6938
+Training ended on episode 6939
+Training ended on episode 6940
+Training ended on episode 6941
+Training ended on episode 6942
+Training ended on episode 6943
+Training ended on episode 6944
+Training ended on episode 6945
+Training ended on episode 6946
+Training ended on episode 6947
+Training ended on episode 6948
+Training ended on episode 6949
+Training ended on episode 6950
+Training ended on episode 6951
+Training ended on episode 6952
+Training ended on episode 6953
+Training ended on episode 6954
+Training ended on episode 6955
+Training ended on episode 6956
+Training ended on episode 6957
+Training ended on episode 6958
+Training ended on episode 6959
+Training ended on episode 6960
+Training ended on episode 6961
+Training ended on episode 6962
+Training ended on episode 6963
+Training ended on episode 6964
+Training ended on episode 6965
+Training ended on episode 6966
+Training ended on episode 6967
+Training ended on episode 6968
+Training ended on episode 6969
+Training ended on episode 6970
+Training ended on episode 6971
+Training ended on episode 6972
+Training ended on episode 6973
+Training ended on episode 6974
+Training ended on episode 6975
+Training ended on episode 6976
+Training ended on episode 6977
+Training ended on episode 6978
+Training ended on episode 6979
+Training ended on episode 6980
+Training ended on episode 6981
+Training ended on episode 6982
+Training ended on episode 6983
+Training ended on episode 6984
+Training ended on episode 6985
+Training ended on episode 6986
+Training ended on episode 6987
+Training ended on episode 6988
+Training ended on episode 6989
+Training ended on episode 6990
+Training ended on episode 6991
+Training ended on episode 6992
+Training ended on episode 6993
+Training ended on episode 6994
+Training ended on episode 6995
+Training ended on episode 6996
+Training ended on episode 6997
+Training ended on episode 6998
+Training ended on episode 6999
+Episode 7000
+Training ended on episode 7000
+Training ended on episode 7001
+Training ended on episode 7002
+Training ended on episode 7003
+Training ended on episode 7004
+******* Training Stats *********
+Average: 100.95104996379435
+Standard Deviation: 70.0194029743716
+Minimum: 8.0
+Maximum: 200.0
+Number of training episodes: 6905
+
+******* Testing Stats *********
+Average: 178.31
+Standard Deviation: 28.17505811883979
+Minimum: 96.0
+Maximum: 200.0
+Number of testing episodes: 100
+[34m[1mwandb[0m: Network error (ConnectionError), entering retry loop.
+Environment not solved. Must get average reward of 195.0 or greater for 100 consecutive trials.

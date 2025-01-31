@@ -1,0 +1,89 @@
+2025-01-30 21:01:38,118 INFO    MainThread:203690 [wandb_setup.py:_flush():68] Current SDK version is 0.19.5
+2025-01-30 21:01:38,119 INFO    MainThread:203690 [wandb_setup.py:_flush():68] Configure stats pid to 203690
+2025-01-30 21:01:38,120 INFO    MainThread:203690 [wandb_setup.py:_flush():68] Loading settings from /home/davindillon/.config/wandb/settings
+2025-01-30 21:01:38,120 INFO    MainThread:203690 [wandb_setup.py:_flush():68] Loading settings from /mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/wandb/settings
+2025-01-30 21:01:38,121 INFO    MainThread:203690 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-01-30 21:01:38,122 INFO    MainThread:203690 [wandb_init.py:setup_run_log_directory():637] Logging user logs to /mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/wandb/run-20250130_210137-kvmwpk99/logs/debug.log
+2025-01-30 21:01:38,125 INFO    MainThread:203690 [wandb_init.py:setup_run_log_directory():638] Logging internal logs to /mnt/c/users/davin/OneDrive/Documents/AAA_Ohio_University/Spring25/GameAI/sb3_wandb/cartpole/wandb/run-20250130_210137-kvmwpk99/logs/debug-internal.log
+2025-01-30 21:01:38,125 INFO    MainThread:203690 [wandb_init.py:init():756] calling init triggers
+2025-01-30 21:01:38,126 INFO    MainThread:203690 [wandb_init.py:init():761] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-01-30 21:01:38,127 INFO    MainThread:203690 [wandb_init.py:init():789] starting backend
+2025-01-30 21:01:38,344 INFO    MainThread:203690 [wandb_init.py:init():793] sending inform_init request
+2025-01-30 21:01:38,367 INFO    MainThread:203690 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-01-30 21:01:38,368 INFO    MainThread:203690 [wandb_init.py:init():808] backend started and connected
+2025-01-30 21:01:38,370 INFO    MainThread:203690 [wandb_init.py:init():901] updated telemetry
+2025-01-30 21:01:38,732 INFO    MainThread:203690 [wandb_init.py:init():926] communicating run to backend with 90.0 second timeout
+2025-01-30 21:01:46,328 INFO    MainThread:203690 [wandb_init.py:init():984] starting run threads in backend
+2025-01-30 21:01:46,737 INFO    MainThread:203690 [wandb_run.py:_console_start():2385] atexit reg
+2025-01-30 21:01:46,738 INFO    MainThread:203690 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2025-01-30 21:01:46,738 INFO    MainThread:203690 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2025-01-30 21:01:46,739 INFO    MainThread:203690 [wandb_run.py:_redirect():2325] Redirects installed.
+2025-01-30 21:01:46,742 INFO    MainThread:203690 [wandb_init.py:init():1026] run started, returning control to user process
+2025-01-30 21:22:17,502 INFO    MainThread:203690 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "/home/davindillon/.local/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/davindillon/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/davindillon/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/davindillon/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/davindillon/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/davindillon/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/davindillon/.local/lib/python3.10/site-packages/urllib3/connection.py", line 704, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/davindillon/.local/lib/python3.10/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7f00281ac760>: Failed to resolve 'api.wandb.ai' ([Errno -3] Temporary failure in name resolution)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "/home/davindillon/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/davindillon/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f00281ac760>: Failed to resolve 'api.wandb.ai' ([Errno -3] Temporary failure in name resolution)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/davindillon/.local/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/davindillon/.local/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 396, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/home/davindillon/.local/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/davindillon/.local/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/davindillon/.local/lib/python3.10/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 592, in post
+    return self.request('POST', url, data=data, json=json, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 544, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 657, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f00281ac760>: Failed to resolve 'api.wandb.ai' ([Errno -3] Temporary failure in name resolution)"))
+2025-01-30 21:28:02,375 INFO    MainThread:203690 [wandb_run.py:_finish():2110] finishing run davindillon-ohio-university/cartpole-qlearning/kvmwpk99
+2025-01-30 21:28:02,376 INFO    MainThread:203690 [wandb_run.py:_atexit_cleanup():2350] got exitcode: 0
+2025-01-30 21:28:02,378 INFO    MainThread:203690 [wandb_run.py:_restore():2332] restore
+2025-01-30 21:28:02,378 INFO    MainThread:203690 [wandb_run.py:_restore():2338] restore done
+2025-01-30 21:28:04,194 INFO    MainThread:203690 [wandb_run.py:_footer_history_summary_info():3963] rendering history
+2025-01-30 21:28:04,202 INFO    MainThread:203690 [wandb_run.py:_footer_history_summary_info():3995] rendering summary
+2025-01-30 21:28:04,203 INFO    MainThread:203690 [wandb_run.py:_footer_sync_info():3924] logging synced files
