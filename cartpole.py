@@ -42,6 +42,7 @@ def validate_pid_consistency(Kp, Ki, Kd, Kx, n_trials=50, max_steps=5000):
     
     episode_lengths = []
     env = gym.make('CartPole-v1')
+    env._max_episode_steps = max_steps  # Override the default 500 step limit
     
     # Simple PID agent for validation
     class ValidationPID:
