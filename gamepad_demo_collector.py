@@ -118,24 +118,28 @@ class CartPoleRenderer:
 
 
 class GamepadController:
-    """Interface for Logitech F310 gamepad."""
+    """Interface for Logitech F310 gamepad or keyboard."""
     
     def __init__(self):
         pygame.init()
         pygame.joystick.init()
         
-        if pygame.joystick.get_count() == 0:
-            raise RuntimeError("No gamepad detected! Please connect your Logitech F310.")
+        self.has_joystick = pygame.joystick.get_count() > 0
         
-        self.joystick = pygame.joystick.Joystick(0)
-        self.joystick.init()
+        if self.has_joystick:
+            self.joystick = pygame.joystick.Joystick(0)
+            self.joystick.init()
+            print(f"Gamepad connected: {self.joystick.get_name()}")
+        else:
+            self.joystick = None
+            print("No gamepad detected - using keyboard controls")
         
-        print(f"Gamepad connected: {self.joystick.get_name()}")
-        print("Controls:")
-        print("  D-pad LEFT  = Push cart left")
-        print("  D-pad RIGHT = Push cart right")
-        print("  A button    = Skip current episode")
-        print("  X button    = Save and exit")
+        print("\nControls:")
+        print("  Keyboard: LEFT/RIGHT arrows or A/D keys = Push cart")
+        if self.has_joystick:
+            print("  Gamepad: D-pad LEFT/RIGHT = Push cart")
+        print("  SPACE or A button = Skip current episode")
+        print("  ESC or X button = Save and exit")
     
     def cleanup(self):
         pygame.quit()
@@ -250,9 +254,12 @@ class DemonstrationCollector:
         print("HUMAN DEMONSTRATION COLLECTION")
         print("="*60)
         print(f"Target: {num_episodes} episodes")
-        print("\nMake sure your Logitech F310 switch is set to 'D' mode")
+        if self.controller.has_joystick:
+            print("\nGamepad detected - you can use D-pad or keyboard")
+        else:
+            print("\nNo gamepad - using keyboard controls")
         print("Try to balance the pole as long as possible!")
-        print("\nPress any D-pad direction to start...")
+        print("\nPress any control to start...")
         print("="*60)
         
         # Wait for initial input
@@ -261,9 +268,16 @@ class DemonstrationCollector:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     return []
-            hat = self.controller.joystick.get_hat(0)
-            if hat[0] != 0:
+            
+            keys = pygame.key.get_pressed()
+            if keys[pygame.K_LEFT] or keys[pygame.K_RIGHT] or keys[pygame.K_a] or keys[pygame.K_d]:
                 waiting = False
+            
+            if self.controller.has_joystick:
+                hat = self.controller.joystick.get_hat(0)
+                if hat[0] != 0:
+                    waiting = False
+            
             pygame.time.wait(50)
         
         episode_count = 0
@@ -303,7 +317,7 @@ class DemonstrationCollector:
             'timestamp': timestamp,
             'env_name': self.env_name,
             'total_steps': sum(d['steps'] for d in self.demonstrations),
-            'avg_reward': np.mean([d['total_reward'] for d in self.demonstrations]) if self.demonstrations else 0,
+            'avg_reward': np.mean([d['total_reward'] for d in self.demonstrations) if self.demonstrations else 0,
             'episodes': [
                 {
                     'episode_num': d['episode_num'],
