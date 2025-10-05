@@ -1,0 +1,84 @@
+{
+  "num_episodes": 15,
+  "timestamp": "20251003_083344",
+  "env_name": "CartPole-v1",
+  "total_steps": 334,
+  "avg_reward": 22.266666666666666,
+  "episodes": [
+    {
+      "episode_num": 1,
+      "steps": 11,
+      "reward": 11.0
+    },
+    {
+      "episode_num": 2,
+      "steps": 44,
+      "reward": 44.0
+    },
+    {
+      "episode_num": 3,
+      "steps": 80,
+      "reward": 80.0
+    },
+    {
+      "episode_num": 4,
+      "steps": 10,
+      "reward": 10.0
+    },
+    {
+      "episode_num": 5,
+      "steps": 13,
+      "reward": 13.0
+    },
+    {
+      "episode_num": 6,
+      "steps": 10,
+      "reward": 10.0
+    },
+    {
+      "episode_num": 7,
+      "steps": 10,
+      "reward": 10.0
+    },
+    {
+      "episode_num": 8,
+      "steps": 9,
+      "reward": 9.0
+    },
+    {
+      "episode_num": 9,
+      "steps": 27,
+      "reward": 27.0
+    },
+    {
+      "episode_num": 10,
+      "steps": 10,
+      "reward": 10.0
+    },
+    {
+      "episode_num": 11,
+      "steps": 14,
+      "reward": 14.0
+    },
+    {
+      "episode_num": 12,
+      "steps": 21,
+      "reward": 21.0
+    },
+    {
+      "episode_num": 13,
+      "steps": 9,
+      "reward": 9.0
+    },
+    {
+      "episode_num": 14,
+      "steps": 9,
+      "reward": 9.0
+    },
+    {
+      "episode_num": 15,
+      "steps": 57,
+      "reward": 57.0
+    }
+  ]
+}
