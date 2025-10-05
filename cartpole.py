@@ -21,6 +21,122 @@ def environment_info(env):
     print()
 
 
+def validate_pid_consistency(Kp, Ki, Kd, Kx, n_trials=50, max_steps=5000):
+    """
+    Test if PID params consistently achieve high performance.
+    
+    Args:
+        Kp, Ki, Kd, Kx: PID parameters to validate
+        n_trials: Number of test episodes to run
+        max_steps: Maximum steps per episode
+        
+    Returns:
+        Dictionary with performance statistics
+    """
+    print(f"\n{'='*70}")
+    print(f"VALIDATING PID PARAMETERS")
+    print(f"{'='*70}")
+    print(f"Parameters: Kp={Kp:.4f}, Ki={Ki:.4f}, Kd={Kd:.4f}, Kx={Kx:.4f}")
+    print(f"Testing over {n_trials} trials with max_steps={max_steps}")
+    print(f"{'-'*70}\n")
+    
+    episode_lengths = []
+    env = gym.make('CartPole-v1')
+    
+    # Simple PID agent for validation
+    class ValidationPID:
+        def __init__(self, Kp, Ki, Kd, Kx):
+            self.Kp = Kp
+            self.Ki = Ki
+            self.Kd = Kd
+            self.Kx = Kx
+            self.cumulative_theta = 0
+            
+        def reset(self):
+            self.cumulative_theta = 0
+            
+        def act(self, obs):
+            x, x_dot, theta, theta_dot = obs
+            self.cumulative_theta += theta
+            
+            pid_value = (self.Kp * theta + 
+                        self.Ki * self.cumulative_theta + 
+                        self.Kd * theta_dot + 
+                        self.Kx * x)
+            
+            return 1 if pid_value > 0 else 0
+    
+    agent = ValidationPID(Kp, Ki, Kd, Kx)
+    
+    for trial in range(n_trials):
+        obs, _ = env.reset(seed=trial)
+        agent.reset()
+        
+        total_steps = 0
+        done = False
+        
+        while not done and total_steps < max_steps:
+            action = agent.act(obs)
+            obs, reward, terminated, truncated, info = env.step(action)
+            done = terminated or truncated
+            total_steps += 1
+        
+        episode_lengths.append(total_steps)
+        
+        # Progress indicator
+        if (trial + 1) % 10 == 0:
+            current_mean = np.mean(episode_lengths)
+            print(f"Trial {trial+1}/{n_trials}: Current mean = {current_mean:.1f} steps")
+    
+    env.close()
+    
+    # Calculate statistics
+    episode_lengths = np.array(episode_lengths)
+    results = {
+        'mean': np.mean(episode_lengths),
+        'std': np.std(episode_lengths),
+        'min': np.min(episode_lengths),
+        'max': np.max(episode_lengths),
+        'median': np.median(episode_lengths),
+        'success_rate': np.sum(episode_lengths >= max_steps * 0.9) / n_trials,
+        'perfect_rate': np.sum(episode_lengths >= max_steps) / n_trials,
+        'episode_lengths': episode_lengths
+    }
+    
+    # Print results
+    print(f"\n{'='*70}")
+    print(f"VALIDATION RESULTS")
+    print(f"{'='*70}")
+    print(f"Mean:              {results['mean']:.2f} steps")
+    print(f"Std Dev:           {results['std']:.2f} steps")
+    print(f"Min:               {results['min']} steps")
+    print(f"Max:               {results['max']} steps")
+    print(f"Median:            {results['median']:.1f} steps")
+    print(f"Success Rate (>90%): {results['success_rate']*100:.1f}%")
+    print(f"Perfect Rate (100%): {results['perfect_rate']*100:.1f}%")
+    print(f"{'='*70}\n")
+    
+    # Interpretation
+    if results['mean'] >= max_steps * 0.95:
+        print("✓ EXCELLENT: Parameters achieve near-perfect performance consistently")
+    elif results['mean'] >= max_steps * 0.8:
+        print("✓ GOOD: Parameters achieve strong performance")
+    elif results['mean'] >= max_steps * 0.5:
+        print("⚠ MODERATE: Parameters show moderate performance")
+    else:
+        print("✗ POOR: Parameters do not perform well - may need re-fitting")
+    
+    if results['std'] < max_steps * 0.1:
+        print("✓ Low variance - very consistent performance")
+    elif results['std'] < max_steps * 0.3:
+        print("○ Moderate variance - reasonably consistent")
+    else:
+        print("⚠ High variance - inconsistent performance across trials")
+    
+    print()
+    return results
+
+
 def basic_guessing_policy(env, agent):
     ''' Execute basic agent policy. '''
     totals = []
@@ -454,7 +570,7 @@ def pid_learning(env, episodes=10000, max_steps=300, run_number=None, init_param
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-a', '--agent',
-                        help='define type of agent you want (basic, random, q-learning, pid-learning)')
+                        help='define type of agent you want (basic, random, q-learning, pid-learning, validate-pid)')
     parser.add_argument('-n', '--run_name', default="PID Learning",
                         help='Name of the W&B run')
     parser.add_argument('--max-steps', type=int, default=300,
@@ -465,7 +581,25 @@ def main():
                         help='Specific run number for saving files (auto-increments if not specified)')
     parser.add_argument('--use-human-init', type=str, default=None,
                         help='Path to human-fitted PID parameters file')
+    parser.add_argument('--validate-params', type=str, default=None,
+                        help='Path to PID parameters file to validate')
+    parser.add_argument('--n-trials', type=int, default=50,
+                        help='Number of validation trials (default: 50)')
     args = parser.parse_args()
+
+    # For validation mode, don't initialize wandb
+    if args.agent == 'validate-pid':
+        if not args.validate_params:
+            print("Error: --validate-params required for validate-pid mode")
+            print("Usage: python cartpole.py -a validate-pid --validate-params fitted_pid_params.pkl --max-steps 5000")
+            return
+        
+        try:
+            Kp, Ki, Kd, Kx = load_human_pid_params(args.validate_params)
+            validate_pid_consistency(Kp, Ki, Kd, Kx, n_trials=args.n_trials, max_steps=args.max_steps)
+        except FileNotFoundError as e:
+            print(f"Error: {e}")
+        return
 
     wandb.init(
         project="cartpole-qlearning",
