@@ -50,7 +50,7 @@ Further accelerated PID learning by bootstrapping from human demonstrations:
 
 **Results (tested at max_steps=5000 to properly evaluate PID performance):**
 - **Random-init PID:** ~3400 steps average after 4000 episodes
-- **Human-init PID:** 5000 steps (perfect) by episode 400
+- **Human-init PID:** 5000 steps (100-episode average - perfect) by episode 400
 - Human demos: 15 episodes averaging 45 steps → 77.99% parameter fit accuracy
 - **~10x faster convergence** with human bootstrapping
 
